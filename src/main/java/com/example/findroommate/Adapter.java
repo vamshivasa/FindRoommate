@@ -22,11 +22,10 @@ import java.util.Objects;
 public class Adapter extends PagerAdapter {
     private List<ImagesPost> mModels;
     private LayoutInflater layoutInflater;
-    private Context context;
-
+    private Context mContext;
     public Adapter(List<ImagesPost> models, Context context) {
         mModels = models;
-        this.context = context;
+        mContext = context;
     }
 
     @Override
@@ -42,7 +41,7 @@ public class Adapter extends PagerAdapter {
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        layoutInflater = LayoutInflater.from(context);
+        layoutInflater = LayoutInflater.from(mContext);
         View view = layoutInflater.inflate(R.layout.view_pager, container, false);
         ImageView imageView;
         imageView = view.findViewById(R.id.imageView_detail);
